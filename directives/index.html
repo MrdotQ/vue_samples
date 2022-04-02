@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+
+    <!-- Vue.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <title>Directives</title>
+  </head>
+  <body>
+    <!-- アウトプットで練習しましょう。 -->
+    <div id="myapp">
+      <span v-bind:style="isBold ? 'font-weight: bold;': ''"
+        >{{ message }}</span
+      >
+      <br />
+      <button v-on:click="isBold = true">make this senctence bold</button>
+      <br />
+      <!-- v-on:のsugar syntax -->
+      <button @click="changeMessage">make this senctence change</button>
+    </div>
+    <script>
+      // データオブジェクト
+      const data = {
+        message: "hello world",
+        isBold: false,
+      };
+      const changeMessage = () => {
+        data.message = "goodbyd world";
+      };
+      // messageをboldにする
+      // messageを変更する
+      var vm = new Vue({
+        el: "#myapp", // htmlのどこに対応しているか
+        data: data, // これにより vm.message === data.messageとなる
+        methods: {
+          changeMessage: changeMessage,
+        },
+      });
+    </script>
+  </body>
+</html>
