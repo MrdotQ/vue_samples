@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!-- Vue.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="./index.js" defer></script>
+    <title>Directives</title>
+  </head>
+  <body>
+    <!-- アウトプットで練習しましょう。 -->
+    <div id="myapp">
+      <div class="button_sample">
+        <p>button sample</p>
+        <button
+          v-bind:style="styleObject"
+          v-bind:disabled="disabled"
+          v-on:click="showMessage"
+        >
+          {{ buttonText }}
+        </button>
+      </div>
+      <br />
+      <div class="button_custom_field">
+        <form action="...">
+          <fieldset>
+            フォントサイズ:
+            <input
+              type="range"
+              name="fontSize"
+              v-model="fontSize"
+              value="fontSize"
+            />{{ fontSize }}
+            <br />
+            文字色: <input type="color" v-model="color" />
+            <br />
+            背景色:
+            <input type="color" v-model="backgroundColor" />
+            <br />
+            角の丸み:
+            <input
+              type="range"
+              v-model="borderRadius"
+              value="borderRadius"
+              min="0"
+              max="50"
+              step="1"
+            />{{ borderRadius }}
+            <br />
+            透明度:
+            <input
+              type="range"
+              v-model="opacity"
+              value="opacity"
+              min="0"
+              max="1"
+              step="0.1"
+            />{{ opacity }}
+            <br />
+            活性/非活性:
+            <input type="checkbox" v-model="disabled" /> {{disabled}}
+            <br />
+            テキスト:
+            <input type="テキスト" name="buttonText" v-model="buttonText" />
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
+
+<!--
+// ・font-size
+//   input type=range
+
+// ・color
+//   input type=color
+
+// ・background-color
+//   input type=color
+
+// ・border-radius
+//   input type=range
+
+// ・opacity
+//   input type=range
+
+//   ・button 要素の disabled 属性
+// 　input type=checkbox
+
+// ・button 要素の value 属性 (ボタンに表示するテキスト)
+// 　input type=text -->
