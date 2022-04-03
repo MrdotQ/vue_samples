@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!-- Vue.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="./index.js" defer></script>
+    <title>Directives</title>
+  </head>
+  <body>
+    <!-- アウトプットで練習しましょう。 -->
+    <div id="myapp">
+      <span v-bind:style="isBold ? 'font-weight: bold;': ''"
+        >{{ message }}</span
+      >
+      <br />
+      <button v-on:click="isBold = true">make this senctence bold</button>
+      <br />
+      <!-- v-on:のsugar syntax -->
+      <button @click="changeMessage">make this senctence change</button>
+      <br />
+      <input type="text" v-model="message" placeholder="上記のmessageを変更" />
+      <br />
+      <!-- 可読性が悪い -->
+      <!-- <p>{{ message.split('').reverse().join('') }}</p> -->
+      <!-- computedを使う -->
+      <p>{{ reversedMessage }}</p>
+    </div>
+    <!-- vueのfwをインストールした後にしかインスタンスを作成できないのでindex.jsはVueのCDNより下 -->
+    <!-- インスタンス作成時に#myappのdomを探すのでhtmlで下の方に書く　それか deferつけてもいいかも -->
+    <!-- <script src="./index.js"></script> -->
+  </body>
+</html>
